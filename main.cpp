@@ -56,13 +56,13 @@ int APIENTRY wWinMain( _In_ HINSTANCE instance, _In_opt_ HINSTANCE prev_instance
 					esp_ent.valid = false;
 
 				//Get clientstate for the entitylist
-				std::uintptr_t client_state = memory.read< std::uintptr_t >( modules.engine_dll + 0x590D8C ); //m_dwClientState
+				std::uintptr_t client_state = memory.read< std::uintptr_t >( modules.engine_dll + sdk::signatures::dwClientState );
 
 				//Read the whole entity list at once
-				memory.read_ex< sdk::ent_info_t >( ent_info.data( ), modules.client_dll + 0x4D06CB4, ent_info.size( ) ); //m_dwEntityList
+				memory.read_ex< sdk::ent_info_t >( ent_info.data( ), modules.client_dll + sdk::signatures::dwEntityList, ent_info.size( ) );
 
 				//Get our local player ptr
-				int local_player_idx = memory.read< int >( client_state + 0x180 ); //m_dwClientState_GetLocalPlayer
+				int local_player_idx = memory.read< int >( client_state + sdk::signatures::dwClientState_GetLocalPlayer );
 				std::uintptr_t local_ptr = ent_info[ local_player_idx ].entity_ptr;
 
 				//Is our local player ptr valid?
