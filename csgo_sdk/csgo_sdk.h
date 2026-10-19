@@ -2,6 +2,7 @@
 #include <cstdint>
 
 #include "../memory_manager/memory_manager.h"
+#include "offsets.h"
 
 namespace sdk {
 	class modules_t {

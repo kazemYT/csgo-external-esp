@@ -1,0 +1,17 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.VC.db
+*.VC.opendb
+
+# Build output
+build/
+[Dd]ebug/
+[Rr]elease/
+x86/
+x64/
+
+# Python (tools/)
+__pycache__/
+*.pyc

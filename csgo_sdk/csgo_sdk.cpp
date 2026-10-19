@@ -3,6 +3,8 @@
 
 namespace sdk {
 	modules_t::modules_t( forceinline::memory_manager* memory ) {
+		//NOTE: the offsets in offsets.h come from a hazedumper dump of client.dll, Valve merged
+		//client_panorama.dll into client.dll - switch this name to match your dump if needed.
 		client_dll = memory->get_module_base( "client_panorama.dll" );
 		engine_dll = memory->get_module_base( "engine.dll" );
 	}

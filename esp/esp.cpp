@@ -14,7 +14,7 @@ namespace esp {
 		static std::uintptr_t client_dll = memory->get_module_base( "client_panorama.dll" );
 
 		//Grab the view matrix
-		sdk::view_matrix_t view_matrix = memory->read< sdk::view_matrix_t >( client_dll + 0x4CF86E4 ); //view_matrix
+		sdk::view_matrix_t view_matrix = memory->read< sdk::view_matrix_t >( client_dll + sdk::signatures::dwViewMatrix );
 
 		//Doesn't work; flickers a LOT for some reason.
 		//static std::uintptr_t crender_bytes = memory->find_pattern( "engine.dll", "B9 ? ? ? ? A1 ? ? ? ? FF 60 38" ) + 1;
